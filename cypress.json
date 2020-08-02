@@ -1,0 +1,26 @@
+{
+
+    "video": true,
+    "videoCompression": 32,
+    "videoUploadOnPasses": true,
+    "baseUrl" : "https://www.amazon.com/",
+    "env": {
+        "MAILOSAUR_API_KEY": "cAATw0Moj9oaKjq",
+        "email": "area51.sqtk8dcz@mailosaur.io",
+        "serverId": "sqtk8dcz"
+      },
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+        "reporterEnabled": "mochawesome",
+        "mochawesomeReporterOptions": {
+            "reportDir": "cypress/reports/mocha",
+            "quite": true,
+            "overwrite": false,
+            "html": false,
+            "json": true
+        }
+    },
+	"chromeWebSecurity": false
+
+
+}

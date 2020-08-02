@@ -1,0 +1,280 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-08-02T12:46:12.183Z",
+    "end": "2020-08-02T12:46:12.183Z",
+    "duration": 74422,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2cb71c51-542c-4ae3-a828-1a7e5f587d50",
+      "title": "",
+      "fullFile": "cypress\\integration\\AC02_match-displayed-products.js",
+      "file": "cypress\\integration\\AC02_match-displayed-products.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7ad52071-66c8-4619-821a-b9a42d6b01a8",
+          "title": "Check the total displayed number of results for category Smart Home | Televisions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visit Smart Home | Televisions category",
+              "fullTitle": "Check the total displayed number of results for category Smart Home | Televisions Visit Smart Home | Televisions category",
+              "timedOut": null,
+              "duration": 12906,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('');\ncy.wait(2000);\ncy.get('#nav-hamburger-menu').click();\ncy.wait(2000);\ncy.get('#hmenu-content > ul > li').contains('Smart Home').click();\ncy.get('.hmenu.hmenu-visible.hmenu-translateX > li').contains('Televisions').click();",
+              "err": {},
+              "uuid": "6b005c6a-4907-4629-8e98-4a053dba6bff",
+              "parentUUID": "7ad52071-66c8-4619-821a-b9a42d6b01a8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Match total number of displayed products",
+              "fullTitle": "Check the total displayed number of results for category Smart Home | Televisions Match total number of displayed products",
+              "timedOut": null,
+              "duration": 7504,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#pagnNextLink').click({\n  force: true\n});\ncy.get('.a-pagination > li.a-selected').nextAll().each(function () {\n  cy.get('.a-pagination > li.a-last').click();\n});\ncy.get('.sg-col-inner span[dir=\"auto\"]').then(function ($val) {\n  var countTxt = $val.text();\n  var count = countTxt.substr(countTxt.indexOf('of') + 3, countTxt.indexOf('results') - 9).trim();\n  cy.wrap($val).should('contain', count + ' of ' + count);\n});",
+              "err": {},
+              "uuid": "dab11f3a-7722-4fa2-9bf0-188c6c8b17d9",
+              "parentUUID": "7ad52071-66c8-4619-821a-b9a42d6b01a8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6b005c6a-4907-4629-8e98-4a053dba6bff",
+            "dab11f3a-7722-4fa2-9bf0-188c6c8b17d9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 20410,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "1d6f2fce-680a-4771-9fac-143e611ae7ad",
+      "title": "",
+      "fullFile": "cypress\\integration\\AC03_currency-for-product.js",
+      "file": "cypress\\integration\\AC03_currency-for-product.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b74c94c6-674e-4ff8-b1f6-b74e90ed9a0f",
+          "title": "Check the selected currency displayed for the product price",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check the selected currency",
+              "fullTitle": "Check the selected currency displayed for the product price Check the selected currency",
+              "timedOut": null,
+              "duration": 21513,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('');\ncy.get('#icp-nav-flyout').trigger('mouseover');\ncy.get('.icp-flyout-change').eq(0).click();\ncy.get('span[data-action=\"a-dropdown-button\"]').click();\ncy.get('.a-popover-inner.a-lgtbox-vertical-scroll').contains('AED').click();\ncy.get('.a-button.a-spacing-top-mini.a-button-primary').click();\ncy.url().should('include', 'currency=AED');\ncy.get('#twotabsearchtextbox').type('shoes{enter}');\ncy.get('.a-offscreen').eq(0).should('contain', 'AED');",
+              "err": {},
+              "uuid": "ca2e1fd9-93de-43b0-a5d0-7ca839e8253b",
+              "parentUUID": "b74c94c6-674e-4ff8-b1f6-b74e90ed9a0f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ca2e1fd9-93de-43b0-a5d0-7ca839e8253b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 21513,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "7a877a6e-bd68-465e-ba50-3a71f51d5a6e",
+      "title": "",
+      "fullFile": "cypress\\integration\\AC01_gift-card-balance.js",
+      "file": "cypress\\integration\\AC01_gift-card-balance.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2235896e-57b2-429d-bd07-de479a7d0f4e",
+          "title": "Check your gift card balance is 0.00",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Register to Amazon account",
+              "fullTitle": "Check your gift card balance is 0.00 Register to Amazon account",
+              "timedOut": null,
+              "duration": 14571,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('');\ncy.get('#nav-link-accountList').trigger('mouseover');\ncy.get('#nav-flyout-ya-newCust a').click();\ncy.url().should('include', '/ap/register');\ncy.get('input[type=\"text\"]').type('Jane Joe');\ncy.get('input[type=\"email\"]').type(Cypress.env('email'));\ncy.get('#ap_password').type(password);\ncy.get('#ap_password_check').type(password);\ncy.get('input[type=\"submit\"]').click();",
+              "err": {},
+              "uuid": "5f658378-aa40-4c25-ba93-6179dd624a3e",
+              "parentUUID": "2235896e-57b2-429d-bd07-de479a7d0f4e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Extract OTP from email and verify the account",
+              "fullTitle": "Check your gift card balance is 0.00 Extract OTP from email and verify the account",
+              "timedOut": null,
+              "duration": 5370,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// wait for an email in the inbox\ncy.mailosaurGetMessage(Cypress.env('serverId'), {\n  sentTo: Cypress.env('email')\n}).then(function (email) {\n  expect(email.subject).to.equal('Verify your new Amazon account');\n  email = new DOMParser().parseFromString(email.html.body, 'text/html');\n  cy.get('input[type=\"text\"]').type(email.getElementsByClassName('otp')[0].innerText);\n  cy.get('#a-autoid-0 input[type=\"submit\"]').click();\n});",
+              "err": {},
+              "uuid": "bd6550ff-b5a5-4001-9d0f-c4c0f459243f",
+              "parentUUID": "2235896e-57b2-429d-bd07-de479a7d0f4e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "checks the gift card balance",
+              "fullTitle": "Check your gift card balance is 0.00 checks the gift card balance",
+              "timedOut": null,
+              "duration": 12558,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#nav-link-accountList').trigger('mouseover');\ncy.get('.nav-link.nav-item').contains('Your Account').click();\ncy.url().should('include', 'gp/css/homepage');\ncy.get('.ya-card__whole-card-link').contains('Gift').click();\ncy.url().then(function ($el) {\n  if ($el.includes('signin')) {\n    cy.get('input[name=\"email\"]').each(function ($el) {\n      if ($el[0].value != Cypress.env('email')) {\n        cy.get('input[type=\"email\"]').type(Cypress.env('email'));\n      }\n    });\n    cy.get('#ap_password').type(password);\n    cy.get('input[type=\"submit\"]').click();\n  }\n});\ncy.url().then(function ($el) {\n  if ($el.includes('signin')) {\n    cy.get('#ap-account-fixup-phone-skip-link').click();\n  }\n});\ncy.get('#gc-ui-balance-gc-balance-value').should('contain', '0.00');",
+              "err": {},
+              "uuid": "0d320219-ab8d-42ab-ae68-4ce9ae881c00",
+              "parentUUID": "2235896e-57b2-429d-bd07-de479a7d0f4e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5f658378-aa40-4c25-ba93-6179dd624a3e",
+            "bd6550ff-b5a5-4001-9d0f-c4c0f459243f",
+            "0d320219-ab8d-42ab-ae68-4ce9ae881c00"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 32499,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

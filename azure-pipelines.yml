@@ -1,0 +1,50 @@
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to docker hub
+      inputs:
+        containerRegistry: 'DockerHub'
+        command: buildAndPush
+        repository: arorad1020/amazon-automation
+        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+        tags: |
+          $(tag)
+    - script: docker run  --env email=$(EMAIL_ID) --env $(SERVER_ID) arorad1020/amazon-automation
+    - task: PublishTestResults@2
+      displayName: 'Publish the test reports'
+      inputs:
+        testResultsFiles: '**/reports/junit.*.xml'
+      condition: succeededOrFailed()
+      continueOnError: true
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish screenshots when there were issues'
+      inputs:
+        pathtoPublish: 'cypress/screenshots'
+        artifactName: screenshots
+      condition: failed()
+      continueOnError: true
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish videos'
+      inputs:
+        pathtoPublish: 'cypress/videos'
+        artifactName: videos
+      condition: succeededOrFailed()
+      continueOnError: true

@@ -1,0 +1,126 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-08-02T12:45:06.593Z",
+    "end": "2020-08-02T12:45:27.381Z",
+    "duration": 20788,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2cb71c51-542c-4ae3-a828-1a7e5f587d50",
+      "title": "",
+      "fullFile": "cypress\\integration\\AC02_match-displayed-products.js",
+      "file": "cypress\\integration\\AC02_match-displayed-products.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7ad52071-66c8-4619-821a-b9a42d6b01a8",
+          "title": "Check the total displayed number of results for category Smart Home | Televisions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visit Smart Home | Televisions category",
+              "fullTitle": "Check the total displayed number of results for category Smart Home | Televisions Visit Smart Home | Televisions category",
+              "timedOut": null,
+              "duration": 12906,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('');\ncy.wait(2000);\ncy.get('#nav-hamburger-menu').click();\ncy.wait(2000);\ncy.get('#hmenu-content > ul > li').contains('Smart Home').click();\ncy.get('.hmenu.hmenu-visible.hmenu-translateX > li').contains('Televisions').click();",
+              "err": {},
+              "uuid": "6b005c6a-4907-4629-8e98-4a053dba6bff",
+              "parentUUID": "7ad52071-66c8-4619-821a-b9a42d6b01a8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Match total number of displayed products",
+              "fullTitle": "Check the total displayed number of results for category Smart Home | Televisions Match total number of displayed products",
+              "timedOut": null,
+              "duration": 7504,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#pagnNextLink').click({\n  force: true\n});\ncy.get('.a-pagination > li.a-selected').nextAll().each(function () {\n  cy.get('.a-pagination > li.a-last').click();\n});\ncy.get('.sg-col-inner span[dir=\"auto\"]').then(function ($val) {\n  var countTxt = $val.text();\n  var count = countTxt.substr(countTxt.indexOf('of') + 3, countTxt.indexOf('results') - 9).trim();\n  cy.wrap($val).should('contain', count + ' of ' + count);\n});",
+              "err": {},
+              "uuid": "dab11f3a-7722-4fa2-9bf0-188c6c8b17d9",
+              "parentUUID": "7ad52071-66c8-4619-821a-b9a42d6b01a8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6b005c6a-4907-4629-8e98-4a053dba6bff",
+            "dab11f3a-7722-4fa2-9bf0-188c6c8b17d9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 20410,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-08-02T12:45:39.431Z",
+    "end": "2020-08-02T12:46:01.277Z",
+    "duration": 21846,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1d6f2fce-680a-4771-9fac-143e611ae7ad",
+      "title": "",
+      "fullFile": "cypress\\integration\\AC03_currency-for-product.js",
+      "file": "cypress\\integration\\AC03_currency-for-product.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b74c94c6-674e-4ff8-b1f6-b74e90ed9a0f",
+          "title": "Check the selected currency displayed for the product price",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check the selected currency",
+              "fullTitle": "Check the selected currency displayed for the product price Check the selected currency",
+              "timedOut": null,
+              "duration": 21513,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('');\ncy.get('#icp-nav-flyout').trigger('mouseover');\ncy.get('.icp-flyout-change').eq(0).click();\ncy.get('span[data-action=\"a-dropdown-button\"]').click();\ncy.get('.a-popover-inner.a-lgtbox-vertical-scroll').contains('AED').click();\ncy.get('.a-button.a-spacing-top-mini.a-button-primary').click();\ncy.url().should('include', 'currency=AED');\ncy.get('#twotabsearchtextbox').type('shoes{enter}');\ncy.get('.a-offscreen').eq(0).should('contain', 'AED');",
+              "err": {},
+              "uuid": "ca2e1fd9-93de-43b0-a5d0-7ca839e8253b",
+              "parentUUID": "b74c94c6-674e-4ff8-b1f6-b74e90ed9a0f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ca2e1fd9-93de-43b0-a5d0-7ca839e8253b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 21513,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

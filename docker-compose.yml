@@ -1,0 +1,6 @@
+version : '3'
+services : 
+    automation-service :
+        image: 'arorad1020/amazon-automation:10'
+        volumes:
+            - ./cypress:/home/node/app/cypress
