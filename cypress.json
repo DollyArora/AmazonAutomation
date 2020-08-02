@@ -6,8 +6,8 @@
     "baseUrl" : "https://www.amazon.com/",
     "env": {
         "MAILOSAUR_API_KEY": "cAATw0Moj9oaKjq",
-        "email": "area51.sqtk8dcz@mailosaur.io",
-        "serverId": "sqtk8dcz"
+        "email": "whole-upon.ztlcwddf@mailosaur.io",
+        "serverId": "ztlcwddf"
       },
     "reporter": "cypress-multi-reporters",
     "reporterOptions": {
