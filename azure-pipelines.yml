@@ -25,7 +25,7 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
-    - script: docker run arorad1020/amazon-automation
+    - script: docker run arorad1020/amazon-automation:$(tag)
     - task: PublishTestResults@2
       displayName: 'Publish the test reports'
       inputs:
