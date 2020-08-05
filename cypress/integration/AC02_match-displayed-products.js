@@ -12,8 +12,14 @@ describe('Check the total displayed number of results for category Smart Home | 
     })
 
     it('Match total number of displayed products', function() {
-        
+    	let countOriginal = 0;
+    	
+    	cy.get('#s-result-count').then(($original) => {
+    		const originalText = $original.text()
+    		countOriginal = originalText.substr(originalText.indexOf('of') + 3).trim()
+    	})
         cy.get('#pagnNextLink').click({ force: true })
+        
         cy.get('.a-pagination > li.a-selected').nextAll().each(() => {
             cy.get('.a-pagination > li.a-last').click()
         })
@@ -23,7 +29,9 @@ describe('Check the total displayed number of results for category Smart Home | 
             
             const count = countTxt.substr(countTxt.indexOf('of') + 3, countTxt.indexOf('results') - 9).trim()
         
-            cy.wrap($val).should('contain', count + ' of ' + count)
+            expect(countOriginal).to.equal(count)
+
+            //cy.wrap($val).should('contain', count + ' of ' + count)
         })
     })
 })
